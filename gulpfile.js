@@ -61,7 +61,7 @@ gulp.task("clean", ["clean:js", "clean:css"]);
 gulp.task("react:development", function () {
     var wconfig = {
         cache: true,
-        devtool: "eval",
+        devtool: "source-map",
         entry: {
             app: ["reflect-metadata", "webpack-dev-server/client?http://" + whost + ":" + wport,
                 "webpack/hot/only-dev-server",

@@ -1,0 +1,3 @@
+﻿interface IKatana {
+    hit(): string;
+}

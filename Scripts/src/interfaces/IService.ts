@@ -1,0 +1,3 @@
+﻿interface IService {
+    test(): string;
+}

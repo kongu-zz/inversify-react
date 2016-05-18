@@ -7,7 +7,7 @@ interface IContext {
     color: string;
 }
 
-export function Logger(binding: string): (target: any, key: string) => void {
+export function InjectProperty(binding: string): (target: any, key: string) => void {
     return function (target: any, key: string) {
 
         // property value

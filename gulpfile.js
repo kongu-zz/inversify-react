@@ -10,6 +10,7 @@ var WebpackDevServer = require("webpack-dev-server");
 var dwebpack = require("webpack");
 var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 var WebpackNotifierPlugin = require('webpack-notifier');
+
 //var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 
 var argv = require("yargs").argv;
@@ -73,7 +74,10 @@ gulp.task("react:development", function () {
         output: {
             path: process.cwd(),
             filename: "[name].js",
-            publicPath: "http://" + whost + ":" + wport + "/js/"
+            publicPath: "http://" + whost + ":" + wport + "/js/",
+            devtoolModuleFilenameTemplate        : '[absolute-resource-path]',
+            devtoolFallbackModuleFilenameTemplate: '[absolute-resource-path]?[hash]',
+            sourceRoot: ""
         },
         plugins: [
             new dwebpack.HotModuleReplacementPlugin(),
@@ -90,9 +94,6 @@ gulp.task("react:development", function () {
             new dwebpack.DefinePlugin({
                 "process.env": { NODE_ENV: JSON.stringify("development") }
             }),
-            /*new dwebpack.ProvidePlugin({
-                Reflect: "reflect-metadata"
-            }),*/
             new WebpackNotifierPlugin({ title: "KL.TIS.Frontend.JS.Search", alwaysNotify: true })
         ],
         module: {

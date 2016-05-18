@@ -12,6 +12,8 @@
         "moduleResolution": "node",
         "emitDecoratorMetadata": true,
         "sourceMap": true
+        //"outDir": "public"
+        //"sourceRoot": ""
     },
     "awesomeTypescriptLoaderOptions": {
         "useWebpackText":  false
